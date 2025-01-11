@@ -22,11 +22,11 @@ hello:
                                     ; String with null terminator (0) to mark end
 
 pad:                     
-    db 510 - ($ - $$) dup 0         ; db = Define Byte - reserves space in memory
-                                    ; Fill remaining space with zeros
-                                    ; $ = current position, $$ = section start
-                                    ; 510 bytes (not 512) because boot_sig is 2 bytes
-                                    ; Total bootloader must be 512 bytes
+    db 510 - ($ - $$) dup 0         ; Pad bootloader to 510 bytes with zeros
+                                    ; $ = current address, $$ = start address (0x7C00)
+                                    ; ($ - $$) calculates how many bytes we've written so far
+                                    ; We need exactly 512 bytes total: 510 for code + 2 for boot signature
 
 boot_sig:                
-    db 55h, 0AAh                    ; Required BIOS boot signature (0x55 = 0101 0101, 0xAA = 1010 1010) marks this as bootable
+    db 55h, 0AAh                    ; Magic boot signature required by BIOS (must be last 2 bytes)
+                                    ; Without this signature, BIOS won't recognize this as bootable
