@@ -29,4 +29,4 @@ pad:
                                     ; Total bootloader must be 512 bytes
 
 boot_sig:                
-    db 55h, 0AAh                    ; Required BIOS boot signature (0x55, 0xAA) marks this as bootable
+    db 55h, 0AAh                    ; Required BIOS boot signature (0x55 = 0101 0101, 0xAA = 1010 1010) marks this as bootable
