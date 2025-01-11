@@ -8,8 +8,8 @@ jmp $                              ; Jump to current address ($) - creates infin
 
 print:                    
     lodsb                          ; Load byte at [SI] into AL and increment SI (lodsb = load string byte)
-    or al, al                      ; Check if AL is 0 (sets zero flag if true)
-    jz .print_end                  ; If zero flag set, reached string end
+    cmp al, 0                      ; Compare AL with 0 (null terminator) to check for end of string
+    je .print_end                  ; Jump to print_end if we found the null terminator (string is finished)
     mov ah, 0Eh                    ; Select BIOS video function 0Eh: write character in TTY mode (prints & advances cursor)
     int 10h                        ; Trigger BIOS interrupt 10h (video services) to display the character
     jmp print                      ; Process next character
