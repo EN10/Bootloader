@@ -12,7 +12,6 @@ print:
     or al, al                       ; Check if AL is 0 (sets zero flag if true)
     jz .print_end                   ; If zero flag set, reached string end
     mov ah, byte 0Eh                ; Set AH to 0E (BIOS teletype output)
-    mov bx, word 03h                ; Set page (BH=0) and color (BL=3)
     int 10h                         ; Call BIOS video interrupt
     jmp print                       ; Process next character
 .print_end:              
