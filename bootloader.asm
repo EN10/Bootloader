@@ -11,7 +11,7 @@ print:
     lodsb                           ; Load byte at [SI] into AL and increment SI
     or al, al                       ; Check if AL is 0 (sets zero flag if true)
     jz .print_end                   ; If zero flag set, reached string end
-    mov ah, byte 0Eh                ; Set AH to 0E (BIOS teletype output)
+    mov ah, byte 0Eh                ; Set AH to 0E for BIOS teletype output (prints char in AL and auto-advances cursor)
     int 10h                         ; Call BIOS video interrupt
     jmp print                       ; Process next character
 .print_end:              
