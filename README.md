@@ -4,8 +4,9 @@ This is a basic x86 bootloader project that demonstrates the fundamentals of OS 
 
 ## Project Structure
 
-- `bootloader.asm` - The main bootloader source code written in x86 assembly
-- `bootloader.bin` - The compiled binary bootloader image
+- `hello_world.asm` - Bootloader that prints "Hello, World!" to the screen
+- `single_char.asm` - Simple bootloader that prints a single character ('H')
+- `*.bin` - The compiled binary bootloader images
 - `bochs_config.bxrc` - Configuration file for the Bochs emulator
 
 ## Prerequisites
@@ -33,14 +34,18 @@ To build and run this project, you'll need:
 
 ## Building
 
-To compile the bootloader, run:
+To compile the bootloaders, run either:
 ```bash
-fasm bootloader.asm bootloader.bin
+fasm hello_world.asm hello_world.bin
+```
+or
+```bash
+fasm single_char.asm single_char.bin
 ```
 
 ## Running
 
-To run the bootloader in Bochs:
+To run a bootloader in Bochs, first update the bochs_config.bxrc file to point to the desired .bin file, then:
 ```bash
 bochs -f bochs_config.bxrc
 ```
@@ -63,7 +68,9 @@ The bootloader implements these key features:
 ## References
 
 ### Learning Resources
-- [Writing a Simple Operating System — from Scratch](https://www.youtube.com/watch?v=EzjnaMGxFko) - Tutorial on OS development basics
+- [Single Character Bootloader Tutorial](https://www.youtube.com/watch?v=KEUgzn_Owxs) - Tutorial for the single character bootloader implementation
+- [Writing a Simple Operating System — from Scratch](https://www.youtube.com/watch?v=EzjnaMGxFko) - Tutorial that inspired our Hello World bootloader implementation
+
 
 ### Assembly and FASM Documentation
 - [FASM Documentation](https://flatassembler.net/docs.php) - Official FASM documentation and manual
