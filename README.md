@@ -1,6 +1,6 @@
 # Simple Bootloader Project
 
-This is a basic x86 bootloader project that demonstrates the fundamentals of OS development. The bootloader prints "Hello, boot world!" to the screen using BIOS interrupts.
+This is a basic x86 bootloader project that demonstrates the fundamentals of OS development. The bootloader prints "Hello, World!" to the screen using BIOS interrupts.
 
 ## Project Structure
 
@@ -30,14 +30,18 @@ bochs -f bochs_config.bxrc
 
 ## Technical Details
 
-The bootloader:
-- Is loaded by BIOS at memory address 0x7C00 (a fixed address chosen by IBM in 1981)
+The bootloader implements these key features:
+- Loads at memory address 0x7C00 (a fixed address chosen by IBM in 1981)
 - Runs in 16-bit real mode
-- Uses BIOS interrupt 0x10 for video output (specifically function 0x0E for teletype output)
-- Includes the standard boot signature (0x55, 0xAA) which marks the sector as bootable
-- Fits within the required 512-byte size for boot sectors
-- Uses null-terminated strings for text output
-- Automatically pads the binary to exactly 512 bytes, with the last two bytes being the boot signature
+- Uses BIOS interrupt 0x10 with function 0x0E for teletype output, which automatically advances the cursor after printing
+- Uses `lodsb` instruction to efficiently load and process string bytes into AL register while auto-incrementing SI
+- Stores string characters using `db` (Define Byte) directive with a null terminator (0)
+- Uses null-terminated strings for text output processing
+- Implements an infinite loop after printing to prevent executing past our code
+- Fits within the required 512 bytes for boot sectors:
+  - Main code and data in first 510 bytes
+  - Automatically pads unused space with zeros
+  - Includes standard boot signature (0x55, 0xAA) in final 2 bytes, required by BIOS to mark the sector as bootable
 
 ## References
 
