@@ -29,5 +29,4 @@ pad:
                                     ; Total bootloader must be 512 bytes
 
 boot_sig:                
-    db 55h, 0AAh                    ; db = Define Byte - places these two specific bytes
-                                    ; Required boot signature for BIOS (0x55, 0xAA)
+    db 55h, 0AAh                    ; Required BIOS boot signature (0x55, 0xAA) marks this as bootable
