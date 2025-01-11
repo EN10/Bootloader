@@ -1,4 +1,4 @@
-org 0x7C00                          ; Origin point where BIOS loads the bootloader
+org 0x7C00                          ; BIOS always loads bootloader to 0x7C00 - a fixed address chosen by IBM in 1981
 use16                               ; Use 16-bit real mode instructions
 
 mov si, hello                       ; Load string address into source index register
