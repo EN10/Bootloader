@@ -18,7 +18,7 @@ print:
     ret                             ; Return from subroutine
 
 hello:                   
-    db "Hello, boot world!", 0      ; db = Define Byte - stores each character as a byte
+    db "Hello, World!", 0           ; db = Define Byte - stores each character as a byte
                                     ; String with null terminator (0) to mark end
 
 pad:                     
