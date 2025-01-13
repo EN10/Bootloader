@@ -1,12 +1,13 @@
-# Simple Bootloader Project
+# Simple x86 Assembly Bootloader Examples
 
 This is a basic x86 bootloader project that demonstrates the fundamentals of OS development. The bootloader prints "Hello, World!" to the screen using BIOS interrupts.
 
 ## Project Structure
 
-- `hello_world.asm` - Bootloader that prints "Hello, World!" to the screen
-- `single_char.asm` - Simple bootloader that prints a single character ('H')
-- `*.bin` - The compiled binary bootloader images
+- `hello_world.asm` - A bootloader that prints "Hello, World!" to the screen
+- `hello_world_func.asm` - Same as hello_world.asm but using a function call to print
+- `single_char.asm` - A minimal bootloader that prints a single character
+- `single_char_min.asm` - An even more minimal version of single_char.asm
 - `bochs_config.bxrc` - Configuration file for the Bochs emulator
 
 ## Prerequisites
