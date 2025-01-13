@@ -2,10 +2,10 @@ org 0x7C00                          ; BIOS loads bootloader to memory address 0x
 use16                               ; Run in 16-bit real mode (default for BIOS)
 
 mov si, hello                       ; Load string address into source index register
+mov ah, 0x0E                        ; Select BIOS video function 0x0E : write character in TTY mode (prints & advances cursor)
 
 print:                    
     lodsb                           ; Load byte at [SI] into AL and increment SI (lodsb = load string byte)
-    mov ah, 0x0E                    ; Select BIOS video function 0x0E : write character in TTY mode (prints & advances cursor)
     int 0x10                        ; Trigger BIOS interrupt 0x10 (video services) to display the character
     cmp al, 0                       ; Compare AL with 0 (null terminator) to check for end of string
     jne print                       ; Process next character
