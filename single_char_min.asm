@@ -1,6 +1,3 @@
-org 0x7C00
-use16
-
 mov ah, 0x0E
 mov al, 'H'
 int 0x10
