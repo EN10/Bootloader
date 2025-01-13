@@ -71,6 +71,7 @@ The bootloader implements these key features:
 - [Single Character Bootloader Tutorial](https://www.youtube.com/watch?v=KEUgzn_Owxs) - Tutorial for the single character bootloader implementation
 - [Writing a Simple Operating System — from Scratch](https://www.youtube.com/watch?v=EzjnaMGxFko) - Tutorial that inspired our Hello World bootloader implementation
 - [Concise Hello World Bootloader](https://www.youtube.com/watch?v=xFrMXzKCXIc) - A streamlined implementation of the Hello World bootloader
+- [OS Tutorial - Boot Sector Printing](https://github.com/cfenollosa/os-tutorial/tree/master/02-bootsector-print) - Detailed guide on implementing boot sector text printing, directly relevant to our Hello World implementation
 
 ### Assembly and FASM Documentation
 - [FASM Documentation](https://flatassembler.net/docs.php) - Official FASM documentation and manual
